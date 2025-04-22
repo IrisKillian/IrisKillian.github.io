@@ -1,157 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gift Opening 🎁</title>
-
-  <!-- Fancy Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Sacramento&display=swap" rel="stylesheet">
-
+  <title>Your Gift 🎁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Quicksand&display=swap" rel="stylesheet">
   <style>
-    /* General styles for the page */
     body {
-      font-family: 'Dancing Script', cursive;
-      background: linear-gradient(to bottom right, #d1c4e9, #f8bbd0);
-      height: 100vh;
       margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #b38dd0, #f7c6d9);
+      font-family: 'Quicksand', sans-serif;
+      color: #822e81;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      color: #9c27b0;
-      text-align: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 45px;
-      color: #8e24aa;
+      margin-top: 40px;
       margin-bottom: 30px;
+      color: #a029a0;
     }
 
-    h1 span {
-      font-size: 50px;
-    }
-
-    /* Button styles */
-    button {
-      padding: 20px 40px;
-      font-size: 24px;
-      border-radius: 15px;
-      background: linear-gradient(to right, #ff80ab, #ba68c8);
-      color: white;
-      border: none;
+    .gift {
+      font-size: 90px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
 
-    button:hover {
+    .gift:hover {
       transform: scale(1.05);
     }
 
-    /* Gift box container */
-    .gift-box {
-      width: 200px;
-      height: 200px;
-      background-color: #ff80ab;
-      border: 5px solid #ba68c8;
-      border-radius: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 80px; /* Make the emoji large */
-      transition: transform 0.3s ease;
-    }
-
-    .gift-box:hover {
-      transform: scale(1.1);
-    }
-
-    /* The message pop-up style */
     .message {
-      display: none;
-      font-size: 28px;
-      margin-top: 30px;
-      font-family: 'Dancing Script', cursive;
-      color: #ad1457;
-    }
-
-    /* Styling for the "Wanna see something cool?" message and link */
-    .cool-message {
-      display: none;
-      font-size: 24px;
-      margin-top: 30px;
-      color: #8e24aa;
-      font-family: 'Sacramento', cursive;
-    }
-
-    .cool-message a {
-      text-decoration: none;
-      color: #ff4081;
-      font-weight: bold;
-    }
-
-    /* Add animation to the gift box opening */
-    @keyframes giftOpen {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.5); }
-    }
-
-    /* Styling for the bow emoji at the top */
-    .bows {
       font-size: 30px;
-      margin-bottom: 15px;
+      font-family: 'Parisienne', cursive;
+      color: #d12a7b;
+      margin-top: 30px;
+      display: none;
+      text-align: center;
     }
 
+    .celebrate-link {
+      font-size: 24px;
+      font-family: 'Great Vibes', cursive;
+      margin-top: 50px;
+      display: none;
+      color: #7c1c66;
+      text-decoration: none;
+      background: linear-gradient(to right, #ffb3dd, #d8b5ff);
+      padding: 12px 24px;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .celebrate-link:hover {
+      background: linear-gradient(to right, #fca4d7, #caa8f5);
+      transform: scale(1.03);
+    }
+
+    .corner {
+      position: absolute;
+      font-size: 30px;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .corner1 { top: 20px; left: 20px; }
+    .corner2 { top: 20px; right: 20px; }
+    .corner3 { bottom: 20px; left: 20px; }
+    .corner4 { bottom: 20px; right: 20px; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Bows at the top -->
-  <div class="bows">
-    🎀 🎀
-  </div>
+  <!-- Corners 🌸 -->
+  <div class="corner corner1">💐</div>
+  <div class="corner corner2">🌷</div>
+  <div class="corner corner3">🌷</div>
+  <div class="corner corner4">💐</div>
 
-  <!-- Main title -->
-  <h1>🎁 Here's a gift for you! 🎁</h1>
+  <!-- Header -->
+  <h1>🎀 Here's a gift for you 🎀</h1>
 
-  <!-- Gift box to click -->
-  <div class="gift-box" id="giftBox">
-    🎁
-  </div>
+  <!-- Gift -->
+  <div class="gift" onclick="revealMessage()">🎁</div>
 
-  <!-- Pop-up message after clicking -->
-  <div class="message" id="message">
-    <p>You're amazing, have a great day! ❤️</p>
-  </div>
+  <!-- Message that appears -->
+  <div id="message" class="message">You're amazing, have a great day! ❤️</div>
 
-  <!-- "Wanna see something cool?" message -->
-  <div class="cool-message" id="coolMessage">
-    <p>Wanna see something cool? <a href="celebration.html">Click here!</a></p>
-  </div>
+  <!-- Next link -->
+  <a id="celebrate" class="celebrate-link" href="celebration.html">Wanna see something cool? Click here ✨</a>
 
   <script>
-    // Getting elements by ID
-    const giftBox = document.getElementById('giftBox');
-    const message = document.getElementById('message');
-    const coolMessage = document.getElementById('coolMessage');
-
-    // Function to open the gift and show the message
-    giftBox.addEventListener('click', function() {
-      giftBox.style.animation = 'giftOpen 1s forwards'; // Animate gift box
-      setTimeout(function() {
-        // After gift box animation, show the "You're amazing" message
-        message.style.display = 'block';
-        setTimeout(function() {
-          // After a delay, show the "Wanna see something cool?" message
-          coolMessage.style.display = 'block';
-        }, 3000); // Wait 3 seconds before showing "cool" message
-      }, 1000); // Wait for 1 second to open the gift box animation
-    });
+    let shown = false;
+    function revealMessage() {
+      if (!shown) {
+        document.getElementById('message').style.display = 'block';
+        document.getElementById('celebrate').style.display = 'inline-block';
+        shown = true;
+      }
+    }
   </script>
-
 </body>
 </html>
 
