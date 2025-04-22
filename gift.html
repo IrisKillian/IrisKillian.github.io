@@ -1,143 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Happy Birthday Gift!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Gift</title>
     <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+        body {
+            background: linear-gradient(to bottom, #7a3aff, #ff88cc); /* Darker purple and lighter pink */
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
 
-      body {
-        text-align: center;
-        font-family: 'Parisienne', cursive;
-        background: linear-gradient(to bottom right, #ffd6ec, #e0bbff);
-        background-attachment: fixed;
-        color: #b83280;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
+        .gift-box {
+            width: 250px;
+            height: 250px;
+            margin: 100px auto;
+            background-color: #ff77ff; /* Pink color */
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
 
-      h1 {
-        font-family: 'Great Vibes', cursive;
-        font-size: 55px;
-        color: #a020f0;
-        margin-bottom: 30px;
-      }
+        .gift-box img {
+            width: 150px;
+            transition: transform 1s ease;
+        }
 
-      .sparkle {
-        font-size: 40px;
-        position: absolute;
-        animation: float 6s infinite ease-in-out;
-      }
+        .message {
+            font-size: 30px;
+            color: #e90064; /* Dark pink color */
+            display: none;
+            padding-top: 20px;
+        }
 
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
-      }
+        .celebrate-button {
+            background: linear-gradient(to right, #ff66b2, #9a4dff); /* Pink to purple gradient */
+            color: white;
+            font-size: 20px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            display: none; /* Hidden initially */
+            transition: background-color 0.3s ease;
+        }
 
-      .emoji1 { top: 30px; left: 30px; font-size: 60px; }    
-      .emoji2 { top: 30px; right: 30px; font-size: 60px; }   
-      .emoji3 { bottom: 30px; left: 30px; font-size: 60px; } 
-      .emoji4 { bottom: 30px; right: 30px; font-size: 60px; }
+        .celebrate-button:hover {
+            background-color: #ff3399; /* Light pink when hovered */
+        }
 
-      .button {
-        margin-top: 50px;
-        padding: 15px 40px;
-        font-size: 22px;
-        border-radius: 30px;
-        font-family: 'Parisienne', cursive;
-        background: linear-gradient(to right, #ff77bb, #c084f5);
-        color: white;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-      }
+        /* Add flowers to the corners of the page */
+        .flower1, .flower2 {
+            font-size: 50px;
+            position: absolute;
+        }
 
-      .button:hover {
-        transform: scale(1.05);
-        background: linear-gradient(to right, #f98ec9, #ba76f3);
-      }
+        .flower1 {
+            top: 10px;
+            left: 10px;
+        }
 
-      .gift-box {
-        font-size: 80px;
-        cursor: pointer;
-        animation: bounce 1s infinite alternate;
-        transition: transform 0.5s ease;
-      }
+        .flower2 {
+            top: 10px;
+            right: 10px;
+        }
 
-      @keyframes bounce {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-      }
+        .flower3 {
+            bottom: 10px;
+            left: 10px;
+        }
 
-      .hidden-message {
-        display: none;
-        font-family: 'Great Vibes', cursive;
-        font-size: 32px;
-        color: #a020f0;
-        margin-top: 30px;
-        background: #ffbbf5;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        animation: fadeIn 2s ease;
-      }
-
-      @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-      }
-
-      .celebrate-button {
-        margin-top: 20px;
-        padding: 15px 40px;
-        font-size: 22px;
-        border-radius: 30px;
-        font-family: 'Parisienne', cursive;
-        background: linear-gradient(to right, #ff77bb, #c084f5);
-        color: white;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-      }
-
-      .celebrate-button:hover {
-        transform: scale(1.05);
-        background: linear-gradient(to right, #f98ec9, #ba76f3);
-      }
+        .flower4 {
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
-  </head>
+</head>
+<body>
 
-  <body>
-    <div class="sparkle emoji1">✨</div>
-    <div class="sparkle emoji2">🌸</div>
-    <div class="sparkle emoji3">🌷</div>
-    <div class="sparkle emoji4">💎</div>
+    <div class="gift-box" id="gift-box">
+        <img src="https://i.pinimg.com/originals/1d/64/f5/1d64f5483725ef9fce9c0a7a3c19521f.png" alt="Gift Box" id="gift-image">
+    </div>
 
-    <h1>Click on the gift to open! 🎁</h1>
-    <div class="gift-box" onclick="openGift()">🎁</div>
+    <div class="message" id="message">
+        <p>Surprise! 🎁</p>
+    </div>
 
-    <div class="hidden-message" id="hiddenMessage">🎉 You’re amazing! Enjoy your day! 🎂</div>
+    <a href="celebration.html">
+        <button class="celebrate-button" id="celebrate-button">Wanna see something cool? ✨</button>
+    </a>
 
-    <!-- New button to link to the celebration page -->
-    <a href="celebration.html"><button class="celebrate-button">Let's Celebrate More! 🎉</button></a>
+    <!-- Flower Emojis on Corners -->
+    <div class="flower1">🌸</div>
+    <div class="flower2">🌷</div> <!-- Changed to Pink Tulip -->
+    <div class="flower3">🌸</div>
+    <div class="flower4">💐</div>
 
     <script>
-      function openGift() {
-        document.querySelector('.gift-box').style.transform = "scale(0)";
-        document.getElementById('hiddenMessage').style.display = "block";
-      }
+        // When the gift box is clicked, the image will zoom out and the message will appear
+        document.getElementById('gift-box').onclick = function() {
+            const giftImage = document.getElementById('gift-image');
+            giftImage.style.transform = "scale(0)"; // Shrinks the image
+            
+            // Delay showing the message and button
+            setTimeout(function() {
+                document.getElementById('message').style.display = "block";
+                document.getElementById('celebrate-button').style.display = "inline-block"; // Show the button
+            }, 1000); // 1 second delay
+        };
     </script>
-  </body>
+
+</body>
 </html>
 
