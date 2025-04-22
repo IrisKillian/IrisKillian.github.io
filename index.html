@@ -3,11 +3,10 @@
   <head>
     <title>Is it your birthday?</title>
 
-    <!-- 🌸 Fonts: Super fancy heading + cute button text -->
+    <!-- 🌸 Fancy cursive fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
 
     <style>
-      /* 🎀 Whole page style */
       html, body {
         height: 100%;
         margin: 0;
@@ -27,7 +26,6 @@
         position: relative;
       }
 
-      /* 💎 Heading style */
       h1 {
         font-family: 'Great Vibes', cursive;
         font-size: 55px;
@@ -35,7 +33,6 @@
         margin-bottom: 50px;
       }
 
-      /* 💖 Cutesy button style */
       button {
         padding: 15px 40px;
         font-size: 22px;
@@ -54,9 +51,8 @@
         background: linear-gradient(to right, #f98ec9, #ba76f3);
       }
 
-      /* 💫 Floating decorations */
       .sparkle {
-        font-size: 25px;
+        font-size: 32px;
         position: absolute;
         animation: float 6s infinite ease-in-out;
       }
@@ -67,25 +63,24 @@
         100% { transform: translateY(0px); }
       }
 
-      .emoji1 { top: 30px; left: 40px; }
-      .emoji2 { top: 80px; right: 50px; }
-      .emoji3 { bottom: 60px; left: 100px; }
-      .emoji4 { bottom: 40px; right: 70px; }
+      .emoji1 { top: 30px; left: 30px; }     /* 💎 top left */
+      .emoji2 { top: 30px; right: 30px; }    /* 💖 top right */
+      .emoji3 { bottom: 30px; left: 30px; }  /* 💖 bottom left */
+      .emoji4 { bottom: 30px; right: 30px; } /* 💎 bottom right */
     </style>
   </head>
 
   <body>
-    <!-- 💓 Floating decorations -->
-    <div class="sparkle emoji1">💗</div>
-    <div class="sparkle emoji2">💎</div>
-    <div class="sparkle emoji3">💗</div>
+    <!-- 💎💖 Floating decor -->
+    <div class="sparkle emoji1">💎</div>
+    <div class="sparkle emoji2">💖</div>
+    <div class="sparkle emoji3">💖</div>
     <div class="sparkle emoji4">💎</div>
 
-    <!-- 🎀 Main heading -->
-    <h1>💗 Is it your birthday today? 💗</h1>
+    <!-- ✨ Heading -->
+    <h1>💖 Is it your birthday today? 💖</h1>
 
-    <!-- 🌈 Cute button to gift page -->
+    <!-- 💝 Button -->
     <a href="gift.html"><button>YES!! 🎉</button></a>
   </body>
 </html>
-
