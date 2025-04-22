@@ -1,88 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Gift</title>
-    <style>
-        body {
-            background: #f8d0c3; /* Soft pink background */
-            font-family: 'Dancing Script', cursive;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Opening 🎁</title>
 
-        .gift-box {
-            width: 250px;
-            height: 250px;
-            margin: 100px auto;
-            background-color: #ff77ff; /* Pink color */
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
+  <!-- Fancy Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
 
-        .gift-box img {
-            width: 150px;
-            transition: transform 1s ease;
-        }
+  <style>
+    /* General styles for the page */
+    body {
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to bottom right, #d1c4e9, #f8bbd0);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #9c27b0;
+      text-align: center;
+    }
 
-        .message {
-            font-size: 30px;
-            color: #e90064; /* Dark pink color */
-            display: none;
-            padding-top: 20px;
-        }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      color: #8e24aa;
+      margin-bottom: 30px;
+    }
 
-        .celebrate-button {
-            background: linear-gradient(to right, #ff66b2, #9a4dff); /* Pink to purple gradient */
-            color: white;
-            font-size: 20px;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            display: none; /* Hidden initially */
-            transition: background-color 0.3s ease;
-        }
+    button {
+      padding: 20px 40px;
+      font-size: 24px;
+      border-radius: 15px;
+      background: linear-gradient(to right, #ff80ab, #ba68c8);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-        .celebrate-button:hover {
-            background-color: #ff3399; /* Light pink when hovered */
-        }
-    </style>
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Gift box container */
+    .gift-box {
+      width: 200px;
+      height: 200px;
+      background-color: #ff80ab;
+      border: 5px solid #ba68c8;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+
+    /* The message pop-up style */
+    .message {
+      display: none;
+      font-size: 28px;
+      margin-top: 30px;
+      font-family: 'Dancing Script', cursive;
+      color: #ad1457;
+    }
+
+    /* Styling for the "Let's Celebrate More" message and link */
+    .celebrate-message {
+      display: none;
+      font-size: 24px;
+      margin-top: 30px;
+      color: #8e24aa;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .celebrate-message a {
+      text-decoration: none;
+      color: #ff4081;
+      font-weight: bold;
+    }
+
+    /* Add animation to the gift box opening */
+    @keyframes giftOpen {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.5); }
+    }
+
+  </style>
 </head>
 <body>
 
-    <div class="gift-box" id="gift-box">
-        <img src="https://i.pinimg.com/originals/1d/64/f5/1d64f5483725ef9fce9c0a7a3c19521f.png" alt="Gift Box" id="gift-image">
-    </div>
+  <!-- Page title -->
+  <h1>🎁 Wanna open a gift? 🎁</h1>
 
-    <div class="message" id="message">
-        <p>Surprise! 🎁</p>
-    </div>
+  <!-- Gift box to click -->
+  <div class="gift-box" id="giftBox">
+    <span>🎁</span>
+  </div>
 
-    <a href="celebration.html">
-        <button class="celebrate-button" id="celebrate-button">Wanna see something cool? ✨</button>
-    </a>
+  <!-- Pop-up message after clicking -->
+  <div class="message" id="message">
+    <p>You are amazing! Have a great day! 🌟</p>
+  </div>
 
-    <script>
-        // When the gift box is clicked, the image will zoom out and the message will appear
-        document.getElementById('gift-box').onclick = function() {
-            const giftImage = document.getElementById('gift-image');
-            giftImage.style.transform = "scale(0)"; // Shrinks the image
-            
-            // Delay showing the message and button
-            setTimeout(function() {
-                document.getElementById('message').style.display = "block";
-                document.getElementById('celebrate-button').style.display = "inline-block"; // Show the button
-            }, 1000); // 1 second delay
-        };
-    </script>
+  <!-- "Let's celebrate more" message -->
+  <div class="celebrate-message" id="celebrateMessage">
+    <p>Let's celebrate more! <a href="celebration.html">Click here!</a></p>
+  </div>
+
+  <!-- Button to trigger the gift opening -->
+  <button id="openGiftButton">Open Gift 🎁</button>
+
+  <script>
+    // Getting elements by ID
+    const giftBox = document.getElementById('giftBox');
+    const message = document.getElementById('message');
+    const celebrateMessage = document.getElementById('celebrateMessage');
+    const openGiftButton = document.getElementById('openGiftButton');
+
+    // Function to open the gift and show the message
+    giftBox.addEventListener('click', function() {
+      giftBox.style.animation = 'giftOpen 1s forwards'; // Animate gift box
+      setTimeout(function() {
+        // After gift box animation, show the "You are amazing" message
+        message.style.display = 'block';
+        openGiftButton.style.display = 'none'; // Hide the open gift button
+        setTimeout(function() {
+          // After a delay, show the "Let's Celebrate More" message
+          celebrateMessage.style.display = 'block';
+        }, 3000); // Wait 3 seconds before showing "celebrate"
+      }, 1000); // Wait for 1 second to open the gift box animation
+    });
+  </script>
 
 </body>
 </html>
