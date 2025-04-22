@@ -8,14 +8,22 @@
 
     <style>
       /* 🎀 Whole page style */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
         text-align: center;
         font-family: 'Dancing Script', cursive;
-        background: linear-gradient(to bottom right, #ffd6ec, #e0bbff); /* soft pink to lavender */
-        padding: 100px 20px;
+        background: linear-gradient(to bottom right, #ffd6ec, #e0bbff);
+        background-attachment: fixed;
         color: #b83280;
-        background-repeat: no-repeat;
-        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         position: relative;
       }
 
@@ -33,7 +41,7 @@
         font-size: 22px;
         border-radius: 30px;
         font-family: 'Dancing Script', cursive;
-        background: linear-gradient(to right, #ff77bb, #c084f5); /* pink-purple gradient */
+        background: linear-gradient(to right, #ff77bb, #c084f5);
         color: white;
         border: none;
         cursor: pointer;
@@ -53,7 +61,6 @@
         animation: float 6s infinite ease-in-out;
       }
 
-      /* ✨ Animation for floating hearts & diamonds */
       @keyframes float {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-20px); }
@@ -69,9 +76,9 @@
 
   <body>
     <!-- 💓 Floating decorations -->
-    <div class="sparkle emoji1">💎</div>
-    <div class="sparkle emoji2">💖</div>
-    <div class="sparkle emoji3">💫</div>
+    <div class="sparkle emoji1">💗</div>
+    <div class="sparkle emoji2">💎</div>
+    <div class="sparkle emoji3">💗</div>
     <div class="sparkle emoji4">💎</div>
 
     <!-- 🎀 Main heading -->
@@ -81,3 +88,4 @@
     <a href="gift.html"><button>YES!! 🎉</button></a>
   </body>
 </html>
+
