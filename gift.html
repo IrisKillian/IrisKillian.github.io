@@ -6,7 +6,7 @@
   <title>Gift Opening 🎁</title>
 
   <!-- Fancy Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Sacramento&display=swap" rel="stylesheet">
 
   <style>
     /* General styles for the page */
@@ -25,11 +25,16 @@
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 50px;
+      font-size: 45px;
       color: #8e24aa;
       margin-bottom: 30px;
     }
 
+    h1 span {
+      font-size: 50px;
+    }
+
+    /* Button styles */
     button {
       padding: 20px 40px;
       font-size: 24px;
@@ -56,6 +61,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      font-size: 80px; /* Make the emoji large */
       transition: transform 0.3s ease;
     }
 
@@ -72,16 +78,16 @@
       color: #ad1457;
     }
 
-    /* Styling for the "Let's Celebrate More" message and link */
-    .celebrate-message {
+    /* Styling for the "Wanna see something cool?" message and link */
+    .cool-message {
       display: none;
       font-size: 24px;
       margin-top: 30px;
       color: #8e24aa;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Sacramento', cursive;
     }
 
-    .celebrate-message a {
+    .cool-message a {
       text-decoration: none;
       color: #ff4081;
       font-weight: bold;
@@ -93,49 +99,55 @@
       100% { transform: scale(1.5); }
     }
 
+    /* Styling for the bow emoji at the top */
+    .bows {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Page title -->
-  <h1>🎁 Wanna open a gift? 🎁</h1>
+  <!-- Bows at the top -->
+  <div class="bows">
+    🎀 🎀
+  </div>
+
+  <!-- Main title -->
+  <h1>🎁 Here's a gift for you! 🎁</h1>
 
   <!-- Gift box to click -->
   <div class="gift-box" id="giftBox">
-    <span>🎁</span>
+    🎁
   </div>
 
   <!-- Pop-up message after clicking -->
   <div class="message" id="message">
-    <p>You are amazing! Have a great day! 🌟</p>
+    <p>You're amazing, have a great day! ❤️</p>
   </div>
 
-  <!-- "Let's celebrate more" message -->
-  <div class="celebrate-message" id="celebrateMessage">
-    <p>Let's celebrate more! <a href="celebration.html">Click here!</a></p>
+  <!-- "Wanna see something cool?" message -->
+  <div class="cool-message" id="coolMessage">
+    <p>Wanna see something cool? <a href="celebration.html">Click here!</a></p>
   </div>
-
-  <!-- Button to trigger the gift opening -->
-  <button id="openGiftButton">Open Gift 🎁</button>
 
   <script>
     // Getting elements by ID
     const giftBox = document.getElementById('giftBox');
     const message = document.getElementById('message');
-    const celebrateMessage = document.getElementById('celebrateMessage');
-    const openGiftButton = document.getElementById('openGiftButton');
+    const coolMessage = document.getElementById('coolMessage');
 
     // Function to open the gift and show the message
     giftBox.addEventListener('click', function() {
       giftBox.style.animation = 'giftOpen 1s forwards'; // Animate gift box
       setTimeout(function() {
-        // After gift box animation, show the "You are amazing" message
+        // After gift box animation, show the "You're amazing" message
         message.style.display = 'block';
-        openGiftButton.style.display = 'none'; // Hide the open gift button
         setTimeout(function() {
-          // After a delay, show the "Let's Celebrate More" message
-          celebrateMessage.style.display = 'block';
-        }, 3000); // Wait 3 seconds before showing "celebrate"
+          // After a delay, show the "Wanna see something cool?" message
+          coolMessage.style.display = 'block';
+        }, 3000); // Wait 3 seconds before showing "cool" message
       }, 1000); // Wait for 1 second to open the gift box animation
     });
   </script>
