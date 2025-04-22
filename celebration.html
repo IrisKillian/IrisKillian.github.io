@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Happy Birthday Gift!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        text-align: center;
+        font-family: 'Parisienne', cursive;
+        background: linear-gradient(to bottom right, #ffd6ec, #e0bbff);
+        background-attachment: fixed;
+        color: #b83280;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 55px;
+        color: #a020f0;
+        margin-bottom: 30px;
+      }
+
+      .sparkle {
+        font-size: 40px;
+        position: absolute;
+        animation: float 6s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .emoji1 { top: 30px; left: 30px; font-size: 60px; }    
+      .emoji2 { top: 30px; right: 30px; font-size: 60px; }   
+      .emoji3 { bottom: 30px; left: 30px; font-size: 60px; } 
+      .emoji4 { bottom: 30px; right: 30px; font-size: 60px; }
+
+      .button {
+        margin-top: 50px;
+        padding: 15px 40px;
+        font-size: 22px;
+        border-radius: 30px;
+        font-family: 'Parisienne', cursive;
+        background: linear-gradient(to right, #ff77bb, #c084f5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+      }
+
+      .button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(to right, #f98ec9, #ba76f3);
+      }
+
+      .gift-box {
+        font-size: 80px;
+        cursor: pointer;
+        animation: bounce 1s infinite alternate;
+        transition: transform 0.5s ease;
+      }
+
+      @keyframes bounce {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+
+      .hidden-message {
+        display: none;
+        font-family: 'Great Vibes', cursive;
+        font-size: 32px;
+        color: #a020f0;
+        margin-top: 30px;
+        background: #ffbbf5;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        animation: fadeIn 2s ease;
+      }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      .celebrate-button {
+        margin-top: 20px;
+        padding: 15px 40px;
+        font-size: 22px;
+        border-radius: 30px;
+        font-family: 'Parisienne', cursive;
+        background: linear-gradient(to right, #ff77bb, #c084f5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+      }
+
+      .celebrate-button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(to right, #f98ec9, #ba76f3);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sparkle emoji1">✨</div>
+    <div class="sparkle emoji2">🌸</div>
+    <div class="sparkle emoji3">🌷</div>
+    <div class="sparkle emoji4">💎</div>
+
+    <h1>Click on the gift to open! 🎁</h1>
+    <div class="gift-box" onclick="openGift()">🎁</div>
+
+    <div class="hidden-message" id="hiddenMessage">🎉 You’re amazing! Enjoy your day! 🎂</div>
+
+    <!-- New button to link to the celebration page -->
+    <a href="celebration.html"><button class="celebrate-button">Let's Celebrate More! 🎉</button></a>
+
+    <script>
+      function openGift() {
+        document.querySelector('.gift-box').style.transform = "scale(0)";
+        document.getElementById('hiddenMessage').style.display = "block";
+      }
+    </script>
+  </body>
+</html>
+
