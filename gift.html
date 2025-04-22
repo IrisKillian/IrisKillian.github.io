@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Gift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> <!-- Fancy font links -->
     <style>
         body {
             background: linear-gradient(to bottom, #7a3aff, #ff88cc); /* Darker purple and lighter pink */
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Playfair Display', serif;
             text-align: center;
             margin: 0;
             padding: 0;
             position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ffffff;
+            font-size: 40px;
+            margin-top: 50px;
         }
 
         .gift-box {
@@ -38,6 +46,13 @@
             color: #e90064; /* Dark pink color */
             display: none;
             padding-top: 20px;
+            opacity: 0;
+            animation: pop-up 1s forwards; /* Pop-up animation */
+        }
+
+        @keyframes pop-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .celebrate-button {
@@ -50,6 +65,7 @@
             cursor: pointer;
             display: none; /* Hidden initially */
             transition: background-color 0.3s ease;
+            font-family: 'Dancing Script', cursive;
         }
 
         .celebrate-button:hover {
@@ -81,9 +97,35 @@
             bottom: 10px;
             right: 10px;
         }
+
+        .box-message {
+            font-size: 18px;
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            margin-top: 10px;
+        }
+
+        /* Additional styling for the heart and diamonds emoji */
+        .heart {
+            font-size: 40px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .diamond {
+            font-size: 50px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
+
+    <h1>Is It Your Birthday Today? 🎉</h1>
+
+    <div class="box-message">Click on the gift box to open it! 🎁</div>
 
     <div class="gift-box" id="gift-box">
         <img src="https://i.pinimg.com/originals/1d/64/f5/1d64f5483725ef9fce9c0a7a3c19521f.png" alt="Gift Box" id="gift-image">
@@ -99,9 +141,13 @@
 
     <!-- Flower Emojis on Corners -->
     <div class="flower1">🌸</div>
-    <div class="flower2">🌷</div> <!-- Changed to Pink Tulip -->
+    <div class="flower2">🌷</div> <!-- Pink Tulip -->
     <div class="flower3">🌸</div>
     <div class="flower4">💐</div>
+
+    <!-- Heart and Diamond Emojis -->
+    <div class="heart">💖</div>
+    <div class="diamond">💎</div>
 
     <script>
         // When the gift box is clicked, the image will zoom out and the message will appear
