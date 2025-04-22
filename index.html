@@ -3,45 +3,81 @@
   <head>
     <title>Is it your birthday?</title>
 
-    <!-- 💖 This line loads the cursive font FIRST -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- 🌸 Fonts: Super fancy heading + cute button text -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
 
     <style>
+      /* 🎀 Whole page style */
       body {
         text-align: center;
         font-family: 'Dancing Script', cursive;
-        background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
-        padding-top: 100px;
-        color: #d63384;
+        background: linear-gradient(to bottom right, #ffd6ec, #e0bbff); /* soft pink to lavender */
+        padding: 100px 20px;
+        color: #b83280;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
       }
 
+      /* 💎 Heading style */
       h1 {
-        font-size: 48px;
+        font-family: 'Great Vibes', cursive;
+        font-size: 55px;
+        color: #a020f0;
         margin-bottom: 50px;
       }
 
+      /* 💖 Cutesy button style */
       button {
-        padding: 15px 30px;
-        font-size: 20px;
-        border-radius: 12px;
-        background-color: #ff69b4;
+        padding: 15px 40px;
+        font-size: 22px;
+        border-radius: 30px;
+        font-family: 'Dancing Script', cursive;
+        background: linear-gradient(to right, #ff77bb, #c084f5); /* pink-purple gradient */
         color: white;
         border: none;
         cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
       }
 
       button:hover {
-        transform: scale(1.1);
-        background-color: #ff85c1;
+        transform: scale(1.05);
+        background: linear-gradient(to right, #f98ec9, #ba76f3);
       }
+
+      /* 💫 Floating decorations */
+      .sparkle {
+        font-size: 25px;
+        position: absolute;
+        animation: float 6s infinite ease-in-out;
+      }
+
+      /* ✨ Animation for floating hearts & diamonds */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .emoji1 { top: 30px; left: 40px; }
+      .emoji2 { top: 80px; right: 50px; }
+      .emoji3 { bottom: 60px; left: 100px; }
+      .emoji4 { bottom: 40px; right: 70px; }
     </style>
   </head>
 
   <body>
-    <h1>💖 Is it your birthday today?</h1>
+    <!-- 💓 Floating decorations -->
+    <div class="sparkle emoji1">💎</div>
+    <div class="sparkle emoji2">💖</div>
+    <div class="sparkle emoji3">💫</div>
+    <div class="sparkle emoji4">💎</div>
+
+    <!-- 🎀 Main heading -->
+    <h1>💗 Is it your birthday today? 💗</h1>
+
+    <!-- 🌈 Cute button to gift page -->
     <a href="gift.html"><button>YES!! 🎉</button></a>
   </body>
 </html>
-
