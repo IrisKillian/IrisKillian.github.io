@@ -1,118 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Your Gift 🎁</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Quicksand&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Celebration Time!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #b38dd0, #f7c6d9);
-      font-family: 'Quicksand', sans-serif;
-      color: #822e81;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #e0bbff, #ffd6ec);
+      font-family: 'Pacifico', cursive;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 45px;
-      margin-top: 40px;
-      margin-bottom: 30px;
-      color: #a029a0;
-    }
-
-    .gift {
-      font-size: 90px;
+    .celebrate-button {
+      padding: 20px 40px;
+      font-size: 28px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #ff77bb, #c084f5);
+      color: white;
       cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .gift:hover {
-      transform: scale(1.05);
-    }
-
-    .message {
-      font-size: 30px;
-      font-family: 'Parisienne', cursive;
-      color: #d12a7b;
-      margin-top: 30px;
-      display: none;
-      text-align: center;
-    }
-
-    .celebrate-link {
-      font-size: 24px;
-      font-family: 'Great Vibes', cursive;
-      margin-top: 50px;
-      display: none;
-      color: #7c1c66;
-      text-decoration: none;
-      background: linear-gradient(to right, #ffb3dd, #d8b5ff);
-      padding: 12px 24px;
-      border-radius: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
-    .celebrate-link:hover {
-      background: linear-gradient(to right, #fca4d7, #caa8f5);
-      transform: scale(1.03);
+    .celebrate-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #f98ec9, #ba76f3);
     }
 
-    .corner {
-      position: absolute;
-      font-size: 30px;
-      animation: float 6s infinite ease-in-out;
+    .birthday-message {
+      font-size: 80px;
+      font-family: 'Great Vibes', cursive;
+      background: linear-gradient(to right, #ff77bb, #c084f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: none;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .corner1 { top: 20px; left: 20px; }
-    .corner2 { top: 20px; right: 20px; }
-    .corner3 { bottom: 20px; left: 20px; }
-    .corner4 { bottom: 20px; right: 20px; }
+    .images-container {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      max-width: 100%;
+      animation: popIn 0.8s ease-in-out;
+    }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
+    .images-container img {
+      width: 240px;
+      height: auto;
+      transition: transform 0.4s;
+    }
+
+    .show {
+      display: flex !important;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Corners 🌸 -->
-  <div class="corner corner1">💐</div>
-  <div class="corner corner2">🌷</div>
-  <div class="corner corner3">🌷</div>
-  <div class="corner corner4">💐</div>
-
-  <!-- Header -->
-  <h1>🎀 Here's a gift for you 🎀</h1>
-
-  <!-- Gift -->
-  <div class="gift" onclick="revealMessage()">🎁</div>
-
-  <!-- Message that appears -->
-  <div id="message" class="message">You're amazing, have a great day! ❤️</div>
-
-  <!-- Next link -->
-  <a id="celebrate" class="celebrate-link" href="celebration.html">Wanna see something cool? Click here ✨</a>
+  <button class="celebrate-button" onclick="startCelebration()">Celebrate 🎉</button>
+  
+  <div id="birthdayMessage" class="birthday-message">Happy Birthday!</div>
+  
+  <div id="images" class="images-container">
+    <img src="balloon_resized.png" alt="Balloon">
+    <img src="flower_resized.gif" alt="Flower">
+    <img src="balloon_resized.png" alt="Balloon">
+    <img src="flower_resized.gif" alt="Flower">
+  </div>
 
   <script>
-    let shown = false;
-    function revealMessage() {
-      if (!shown) {
-        document.getElementById('message').style.display = 'block';
-        document.getElementById('celebrate').style.display = 'inline-block';
-        shown = true;
-      }
+    function startCelebration() {
+      document.querySelector('.celebrate-button').style.display = 'none';
+      document.getElementById('birthdayMessage').style.display = 'block';
+      document.getElementById('images').style.display = 'flex';
     }
   </script>
+
 </body>
 </html>
 
