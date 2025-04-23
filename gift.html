@@ -2,101 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Celebration Time!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Here's a Gift For You!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Parisienne&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: linear-gradient(to bottom right, #e0bbff, #ffd6ec);
-      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to bottom, #d3a4f5, #ffd6ec);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      color: #a020f0;
       overflow: hidden;
     }
 
-    .celebrate-button {
-      padding: 20px 40px;
-      font-size: 28px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(to right, #ff77bb, #c084f5);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .celebrate-button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to right, #f98ec9, #ba76f3);
-    }
-
-    .birthday-message {
-      font-size: 80px;
+    h1 {
       font-family: 'Great Vibes', cursive;
-      background: linear-gradient(to right, #ff77bb, #c084f5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: none;
+      font-size: 55px;
       margin-bottom: 40px;
-      animation: fadeIn 1s ease-in-out;
+      color: #c62aa0;
     }
 
-    .images-container {
+    .gift {
+      font-size: 100px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gift:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
       display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 50px;
-      max-width: 100%;
-      animation: popIn 0.8s ease-in-out;
+      font-size: 36px;
+      margin-top: 30px;
+      font-family: 'Parisienne', cursive;
+      color: #d6288f;
+      animation: fadeIn 1s ease-in-out forwards;
     }
 
-    .images-container img {
-      width: 240px;
-      height: auto;
-      transition: transform 0.4s;
+    .next-link {
+      display: none;
+      margin-top: 30px;
+      font-size: 24px;
+      color: #7b1fa2;
+      cursor: pointer;
+      font-family: 'Great Vibes', cursive;
+      text-decoration: underline;
     }
 
     .show {
-      display: flex !important;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      display: block;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <button class="celebrate-button" onclick="startCelebration()">Celebrate 🎉</button>
-  
-  <div id="birthdayMessage" class="birthday-message">Happy Birthday!</div>
-  
-  <div id="images" class="images-container">
-    <img src="balloon_resized.png" alt="Balloon">
-    <img src="flower_resized.gif" alt="Flower">
-    <img src="balloon_resized.png" alt="Balloon">
-    <img src="flower_resized.gif" alt="Flower">
-  </div>
+  <h1>🎀 Here's a gift for you 🎀</h1>
+
+  <div class="gift" onclick="revealMessage()">🎁</div>
+
+  <div id="msg" class="message">You're amazing, have a great day! ❤️</div>
+  <div id="next" class="next-link" onclick="goToNext()">Wanna see something cool? Click here</div>
 
   <script>
-    function startCelebration() {
-      document.querySelector('.celebrate-button').style.display = 'none';
-      document.getElementById('birthdayMessage').style.display = 'block';
-      document.getElementById('images').style.display = 'flex';
+    function revealMessage() {
+      document.getElementById('msg').classList.add('show');
+      document.getElementById('next').classList.add('show');
+    }
+
+    function goToNext() {
+      window.location.href = "celebration.html";
     }
   </script>
 
