@@ -50,25 +50,30 @@
       animation: fadeIn 1s ease-in-out;
     }
 
-    .images-container {
+    .emoji-wrapper {
       display: none;
-      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       gap: 50px;
-      max-width: 100%;
+      margin-bottom: 40px;
       animation: popIn 0.8s ease-in-out;
     }
 
-    .images-container img {
-      width: 280px;
-      height: auto;
-      transition: transform 0.4s;
+    .emoji-wrapper div {
+      font-size: 130px;
     }
+
+    .emoji-wrapper .flower {
+      font-size: 160px;
+    }
+
+    .up { transform: translateY(-20px); }
+    .mid { transform: translateY(0); }
+    .down { transform: translateY(20px); }
 
     .next-page-link {
       display: none;
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 24px;
       background: #fff;
       padding: 12px 24px;
@@ -102,19 +107,20 @@
 
   <button class="celebrate-button" onclick="startCelebration()">Surprise! 🎁</button>
   <div id="birthdayMessage" class="birthday-message">Happy Birthday!</div>
-  <div id="images" class="images-container">
-    <img src="balloon_resized.png" alt="Balloon">
-    <img src="flower_resized.gif" alt="Flower">
-    <img src="balloon_resized.png" alt="Balloon">
-    <img src="flower_resized.gif" alt="Flower">
+
+  <div id="emojiWrapper" class="emoji-wrapper">
+    <div class="up">🎈</div>
+    <div class="flower mid">💐</div>
+    <div class="down">🎈</div>
   </div>
+
   <a id="nextPageLink" class="next-page-link" href="final.html">Continue to Surprise 🎂</a>
 
   <script>
     function startCelebration() {
       document.querySelector('.celebrate-button').style.display = 'none';
       document.getElementById('birthdayMessage').classList.add('show');
-      document.getElementById('images').classList.add('show');
+      document.getElementById('emojiWrapper').classList.add('show');
       document.getElementById('nextPageLink').classList.add('show-block');
     }
   </script>
