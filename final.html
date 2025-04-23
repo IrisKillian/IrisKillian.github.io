@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Surprise!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #b3e5fc, #0288d1);
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      font-size: 30px;
+    }
+
+    .top-left { top: 20px; left: 20px; }
+    .top-right { top: 20px; right: 20px; }
+    .bottom-left { bottom: 20px; left: 20px; }
+    .bottom-right { bottom: 20px; right: 20px; }
+
+    .cake {
+      font-size: 140px;
+      animation: popIn 1s ease-in-out;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 28px;
+    }
+
+    .next-button {
+      margin-top: 30px;
+      font-size: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 20px;
+      background: #ffffff;
+      color: #0288d1;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .next-button:hover {
+      background: #e0f7fa;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti top-left">🎉</div>
+  <div class="confetti top-right">🎉</div>
+  <div class="confetti bottom-left">🎉</div>
+  <div class="confetti bottom-right">🎉</div>
+
+  <div class="cake">🎂</div>
+  <div class="message">Hope you liked your gift!</div>
+  <button class="next-button" onclick="window.location.href='rate.html'">Rate the Surprise ✨</button>
+
+</body>
+</html>
+
